@@ -1,0 +1,90 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2590,         82]
+NotebookOptionsPosition[      2232,         68]
+NotebookOutlinePosition[      2637,         84]
+CellTagsIndexPosition[      2594,         81]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"moves", "=", 
+    RowBox[{"Import", "[", "\"\<moves.json\>\"", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"doMove", "[", 
+    RowBox[{"numbers_", ",", "type_"}], "]"}], ":=", 
+   RowBox[{"Switch", "[", 
+    RowBox[{"type", ",", "\"\<Left\>\"", ",", 
+     RowBox[{"RotateLeft", "[", "numbers", "]"}], ",", "\"\<Right\>\"", ",", 
+     RowBox[{"RotateRight", "[", "numbers", "]"}], ",", "\"\<Swap\>\"", ",", 
+     RowBox[{"Permute", "[", 
+      RowBox[{"numbers", ",", 
+       RowBox[{"Cycles", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"3", ",", "4"}], "}"}]}], "}"}], "]"}]}], "]"}]}], "]"}]}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"verifyMoves", "[", "moves_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"FoldList", "[", 
+     RowBox[{"doMove", ",", 
+      RowBox[{"moves", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "3"}], "]"}], "]"}], ",", 
+      RowBox[{"moves", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"2", ";;"}], ",", "2"}], "]"}], "]"}]}], "]"}], "==", 
+    RowBox[{"moves", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "3"}], "]"}], "]"}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"verifyMoves", "[", "moves", "]"}]}], "Input",
+ CellLabel->"In[16]:=",ExpressionUUID->"4a872c8f-ae7a-420a-a90e-38fbd5dd77e6"]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{429, Automatic}, {42, Automatic}},
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ac523d5b-acde-4082-96d1-b2b23957be94"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1670, 46, 238, "Input",ExpressionUUID->"4a872c8f-ae7a-420a-a90e-38fbd5dd77e6"]
+}
+]
+*)
+
