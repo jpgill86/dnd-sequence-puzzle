@@ -13,6 +13,11 @@ const redoButton = document.getElementById('redo-button');
 const clipboardButton = document.getElementById('clipboard-button');
 const moveCounter = document.getElementById('move-counter');
 
+function initialize() {
+  labels = Array.from(puzzleSVG.querySelectorAll('#label-1, #label-2, #label-3, #label-4, #label-5, #label-6, #label-7, #label-8, #label-9, #label-10, #label-11, #label-12'));
+  setSeed();
+}
+
 function setSeed(newSeed) {
   if (newSeed == null) {
     newSeed = (urlParams.get('seed') || Date.now());
@@ -202,9 +207,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (seedLocked) {
     randomButton.classList.add('hide');
   }
-});
 
-puzzleSVG.addEventListener('load', function() {
-  labels = Array.from(puzzleSVG.contentDocument.querySelectorAll('#label-1 tspan, #label-2 tspan, #label-3 tspan, #label-4 tspan, #label-5 tspan, #label-6 tspan, #label-7 tspan, #label-8 tspan, #label-9 tspan, #label-10 tspan, #label-11 tspan, #label-12 tspan'));
-  setSeed();
+  initialize();
 });
