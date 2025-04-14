@@ -116,7 +116,8 @@ function toggleFullScreen() {
   if (!document.fullscreenElement) {
     try {
       document.documentElement.requestFullscreen();
-      fullScreenButton.className = "fa fa-compress fa-3x";
+      fullScreenButton.classList.remove('fa-expand')
+      fullScreenButton.classList.add('fa-compress')
       fullScreenButton.title = "Exit fullscreen";
     } catch (err) {
       console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
@@ -124,7 +125,8 @@ function toggleFullScreen() {
   } else {
     try{
       document.exitFullscreen();
-      fullScreenButton.className = "fa fa-expand fa-3x";
+      fullScreenButton.classList.remove('fa-compress')
+      fullScreenButton.classList.add('fa-expand')
       fullScreenButton.title = "Expand to fullscreen";
     } catch (err) {
       console.error(`Error attempting to disable fullscreen mode: ${err.message}`);
